@@ -1,0 +1,20 @@
+create TABLE Roles(
+ID int primary key AUTO_INCREMENT,
+Roles varchar(20)    
+)
+
+INSERT INTO `roles` (`Roles`) VALUES 
+('Admin'), 
+('Teacher'),
+('Student');
+
+create TABLE Registeration(
+    Reg_ID int primary key AUTO_INCREMENT,
+    Name varchar(40),
+    Email varchar(50),
+    Passowrd varchar(40),
+    Role_ID_FK int,
+    FOREIGN KEY (Role_ID_FK) REFERENCES roles(ID)
+)
+
+ALTER TABLE registeration ADD CONSTRAINT email_id UNIQUE (Email)
